@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915120317) do
+ActiveRecord::Schema.define(version: 20140915154820) do
 
   create_table "interfaces", force: true do |t|
     t.string   "address"
@@ -20,5 +20,19 @@ ActiveRecord::Schema.define(version: 20140915120317) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rules", force: true do |t|
+    t.integer  "src_id"
+    t.integer  "dst_id"
+    t.integer  "src_port"
+    t.integer  "dst_port"
+    t.boolean  "src_port_any", default: true
+    t.boolean  "dst_port_any", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rules", ["dst_id"], name: "index_rules_on_dst_id"
+  add_index "rules", ["src_id"], name: "index_rules_on_src_id"
 
 end
