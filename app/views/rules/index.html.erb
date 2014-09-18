@@ -1,0 +1,35 @@
+<h1>Listing rules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Src</th>
+      <th>Dst</th>
+      <th>Src port</th>
+      <th>Dst port</th>
+      <th>Src port any</th>
+      <th>Dst port any</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rules.each do |rule| %>
+      <tr>
+        <td><%= rule.src %></td>
+        <td><%= rule.dst %></td>
+        <td><%= rule.src_port %></td>
+        <td><%= rule.dst_port %></td>
+        <td><%= rule.src_port_any %></td>
+        <td><%= rule.dst_port_any %></td>
+        <td><%= link_to 'Show', rule %></td>
+        <td><%= link_to 'Edit', edit_rule_path(rule) %></td>
+        <td><%= link_to 'Destroy', rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rule', new_rule_path %>

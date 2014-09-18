@@ -1,0 +1,41 @@
+<%= form_for(@rule) do |f| %>
+  <% if @rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
+
+      <ul>
+      <% @rule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :src_id %><br>
+    <%= f.collection_select :src_id, Interface.all, :id, :to_s %>
+  </div>
+  <div class="field">
+    <%= f.label :dst_id %><br>
+    <%= f.collection_select :dst_id, Interface.all, :id, :to_s %>
+  </div>
+  <div class="field">
+    <%= f.label :src_port %><br>
+    <%= f.number_field :src_port %>
+  </div>
+  <div class="field">
+    <%= f.label :dst_port %><br>
+    <%= f.number_field :dst_port %>
+  </div>
+  <div class="field">
+    <%= f.label :src_port_any %><br>
+    <%= f.check_box :src_port_any %>
+  </div>
+  <div class="field">
+    <%= f.label :dst_port_any %><br>
+    <%= f.check_box :dst_port_any %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

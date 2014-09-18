@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Src:</strong>
+  <%= @rule.src %>
+</p>
+
+<p>
+  <strong>Dst:</strong>
+  <%= @rule.dst %>
+</p>
+
+<p>
+  <strong>Src port:</strong>
+  <%= @rule.src_port %>
+</p>
+
+<p>
+  <strong>Dst port:</strong>
+  <%= @rule.dst_port %>
+</p>
+
+<p>
+  <strong>Src port any:</strong>
+  <%= @rule.src_port_any %>
+</p>
+
+<p>
+  <strong>Dst port any:</strong>
+  <%= @rule.dst_port_any %>
+</p>
+
+<%= link_to 'Edit', edit_rule_path(@rule) %> |
+<%= link_to 'Back', rules_path %>
